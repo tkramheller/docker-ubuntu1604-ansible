@@ -6,7 +6,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        python-software-properties \
        software-properties-common \
-       rsyslog systemd systemd-cron sudo \
+       rsyslog systemd systemd-cron sudo python-pip \
     && rm -Rf /var/lib/apt/lists/* \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean
@@ -22,7 +22,7 @@ RUN add-apt-repository -y ppa:ansible/ansible \
   && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
   && apt-get clean
 
-RUN pip2 install ansible-lint
+RUN pip install ansible-lint
 
 COPY initctl_faker .
 RUN chmod +x initctl_faker && rm -fr /sbin/initctl && ln -s /initctl_faker /sbin/initctl

@@ -1,12 +1,12 @@
 FROM ubuntu:16.04
-MAINTAINER Michael Weinrich
+MAINTAINER Tobias Kramheller 
 
 # Install dependencies.
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        python-software-properties \
        software-properties-common \
-       rsyslog systemd systemd-cron sudo python-pip \
+       iproute rsyslog systemd systemd-cron sudo python-pip \
     && rm -Rf /var/lib/apt/lists/* \
     && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
     && apt-get clean

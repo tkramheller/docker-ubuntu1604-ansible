@@ -22,8 +22,7 @@ RUN add-apt-repository -y ppa:ansible/ansible \
   && rm -Rf /usr/share/doc && rm -Rf /usr/share/man \
   && apt-get clean
 
-RUN pip install ansible-lint
-RUN pip install testinfra
+RUN pip install ansible-lint testinfra
 
 COPY initctl_faker .
 RUN chmod +x initctl_faker && rm -fr /sbin/initctl && ln -s /initctl_faker /sbin/initctl

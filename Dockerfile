@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Michael Weinrich
+MAINTAINER Tobias Kramheller 
 
 # Install dependencies.
 RUN apt-get update \
